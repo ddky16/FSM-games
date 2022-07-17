@@ -1,0 +1,4 @@
+repository "Thesis-FSM"
+  path "/"
+    br "/main"
+    co "/main"
