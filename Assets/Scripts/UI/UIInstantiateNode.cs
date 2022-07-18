@@ -31,7 +31,6 @@ public class UIInstantiateNode : MonoBehaviour
   [Header("Data")]
   public ListData nodes;
   private GameObject tank;
-  private UIInstantiateNode nodesData;
 
   private void Start()
   {

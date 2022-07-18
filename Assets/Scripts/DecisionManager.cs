@@ -110,7 +110,7 @@ public class DecisionManager : MonoBehaviour
           stateContainer.AddComponent<Health>().HealthCheck(float.Parse(limitUserGiven), nodesData.nodes.logicList[startPos], nodesData.nodes.logicList[endPos]);
           break;
         case 1:
-          stateContainer.AddComponent<Delay>().DelayCheck(float.Parse(limitUserGiven), nodesData.nodes.logicList[startPos], nodesData.nodes.logicList[endPos]);
+          nodesData.stateContainer.AddComponent<Delay>();
           break;
         case 2:
           stateContainer.AddComponent<Shoot>();

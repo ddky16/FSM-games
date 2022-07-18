@@ -5,27 +5,32 @@ using UnityEngine;
 public class Delay : MonoBehaviour
 {
   UIInstantiateNode _delayNode;
+  float delayTime = 2;
+  float currentTime = 0;
 
   private void Start()
   {
     _delayNode = GameObject.FindObjectOfType<UIInstantiateNode>();
-  }
-
-  public void DelayCheck(float delayTime, GameObject component1, GameObject component2)
-  {
-    float currentTime = delayTime;
-
-    currentTime -= Time.deltaTime;
-
-    if (currentTime < 0)
-    {
-      component1.SetActive(false);
-      component2.SetActive(true);
-    }
+    _delayNode.nodes.logicList[0].SetActive(true);
+    _delayNode.nodes.logicList[1].SetActive(false);
+    currentTime = delayTime;
   }
 
   private void Update()
   {
-    DelayCheck(2, _delayNode.nodes.logicList[0], _delayNode.nodes.logicList[1]);
+    currentTime -= Time.deltaTime;
+
+    if (currentTime < 0)
+    {
+      print("done");
+      _delayNode.nodes.logicList[0].SetActive(false);
+      _delayNode.nodes.logicList[1].SetActive(true);
+    }
   }
+
+  public void DelayCheck(float delayTime, GameObject component1, GameObject component2)
+  {
+
+  }
+
 }
