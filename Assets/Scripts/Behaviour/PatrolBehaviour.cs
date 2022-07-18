@@ -12,10 +12,12 @@ public class PatrolBehaviour : MonoBehaviour
   private bool _waiting = false;
 
   private UIInstantiateNode _instantiateNode;
+  private GameObject tank;
 
   private void Start()
   {
     _instantiateNode = FindObjectOfType<UIInstantiateNode>();
+    tank = GameObject.Find("Tank");
   }
 
   private void Update()
@@ -32,9 +34,9 @@ public class PatrolBehaviour : MonoBehaviour
 
     Vector2 point = _instantiateNode.nodes.waypointsList[_currentWaypointIndex];
 
-    if (Vector3.Distance(transform.position, point) < 0.01f)
+    if (Vector3.Distance(tank.transform.position, point) < 0.01f)
     {
-      transform.position = point;
+      tank.transform.position = point;
       // _waitCounter = 0.1f;
       // _waiting = true;
 
@@ -47,15 +49,15 @@ public class PatrolBehaviour : MonoBehaviour
     else
     {
       RotateTowards(point);
-      transform.position = Vector3.MoveTowards(transform.position, point, _speed * Time.deltaTime);
+      tank.transform.position = Vector3.MoveTowards(tank.transform.position, point, _speed * Time.deltaTime);
     }
   }
 
   private void RotateTowards(Vector2 target)
   {
-    Vector2 direction = (target - (Vector2)transform.position).normalized;
+    Vector2 direction = (target - (Vector2)tank.transform.position).normalized;
     var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     var offset = 90f;
-    transform.rotation = Quaternion.Euler(Vector3.forward * (angle - offset));
+    tank.transform.rotation = Quaternion.Euler(Vector3.forward * (angle - offset));
   }
 }

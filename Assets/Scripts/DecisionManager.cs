@@ -25,17 +25,22 @@ public class DecisionManager : MonoBehaviour
   public GameObject optionArithmeticDropdown;
   public GameObject inputFieldLimitStatement;
   public GameObject btnAcceptEventStatement;
+  public GameObject stateContainer;
 
   [Header("General Button Decision Manager")]
   public GameObject btnAcceptEvent;
   public GameObject btnConfirmDecision;
 
   private UIInstantiateNode nodesData;
+  int chosenValueStatementCondition;
+  int chosenValueArithmeticCondition;
+  string limitUserGiven;
 
   // Start is called before the first frame update
   void Start()
   {
     nodesData = FindObjectOfType<UIInstantiateNode>();
+    stateContainer = GameObject.Find("Transition Container");
 
     startStateChoiceDropdown.GetComponent<TMP_Dropdown>().ClearOptions();
     endStateChoiceDropdown.GetComponent<TMP_Dropdown>().ClearOptions();
@@ -74,9 +79,9 @@ public class DecisionManager : MonoBehaviour
 
     btnAcceptEventStatement.GetComponent<Button>().onClick.AddListener(() =>
     {
-      int chosenValueStatementCondition = optionStatementDropdown.GetComponent<TMP_Dropdown>().value;
-      int chosenValueArithmeticCondition = optionArithmeticDropdown.GetComponent<TMP_Dropdown>().value;
-      string limitUserGiven = inputFieldLimitStatement.GetComponent<TMP_InputField>().text;
+      chosenValueStatementCondition = optionStatementDropdown.GetComponent<TMP_Dropdown>().value;
+      chosenValueArithmeticCondition = optionArithmeticDropdown.GetComponent<TMP_Dropdown>().value;
+      limitUserGiven = inputFieldLimitStatement.GetComponent<TMP_InputField>().text;
 
       optionStatementDropdown.GetComponent<TMP_Dropdown>().enabled = false;
       optionArithmeticDropdown.GetComponent<TMP_Dropdown>().enabled = false;
@@ -98,6 +103,19 @@ public class DecisionManager : MonoBehaviour
 
       startStateChoiceText.SetActive(true);
       endStateChoiceText.SetActive(true);
+
+      switch (chosenValueStatementCondition)
+      {
+        case 0:
+          stateContainer.AddComponent<Health>().HealthCheck(float.Parse(limitUserGiven), nodesData.nodes.logicList[startPos], nodesData.nodes.logicList[endPos]);
+          break;
+        case 1:
+          stateContainer.AddComponent<Delay>().DelayCheck(float.Parse(limitUserGiven), nodesData.nodes.logicList[startPos], nodesData.nodes.logicList[endPos]);
+          break;
+        case 2:
+          stateContainer.AddComponent<Shoot>();
+          break;
+      }
 
       nodesData.prefabLineRenderer.GetComponent<AddingLinePoints>().stateLists.Add(nodesData.nodes.stateList[startPos].GetComponent<RectTransform>());
       nodesData.prefabLineRenderer.GetComponent<AddingLinePoints>().stateLists.Add(nodesData.nodes.stateList[endPos].GetComponent<RectTransform>());

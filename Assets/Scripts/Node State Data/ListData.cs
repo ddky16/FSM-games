@@ -6,6 +6,7 @@ using UnityEngine;
 public class ListData
 {
   public List<GameObject> stateList;
+  public List<GameObject> logicList;
   public List<GameObject> lineList;
   public List<Vector2> waypointsList;
   public List<GameObject> transitionDataList;

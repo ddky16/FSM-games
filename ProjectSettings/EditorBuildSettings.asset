@@ -6,12 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/AuthScene.unity
-    guid: dda1647c191b38b439aba8107196837c
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: a7da98600f7fb54459adb154def3a0c8
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 9252d52147ee0924c8e876830a764877
+    path: Assets/Scenes/Level 1 Movement.unity
+    guid: f7b65006eca88834db4ad8db895f02ef
+  - enabled: 1
+    path: Assets/Scenes/Level 2 Movement.unity
+    guid: a92c22534fe061e4da46b4b897ffb9bd
+  - enabled: 1
+    path: Assets/Scenes/Level 3 Movement.unity
+    guid: 78370c5ed0d55474ab3bbe06979ae487
+  - enabled: 1
+    path: Assets/Scenes/Level 4 Movement.unity
+    guid: b0d39127e63405042b82b564b32a84ad
+  - enabled: 1
+    path: Assets/Scenes/Level 5 Movement.unity
+    guid: cd52e999e8429f64b9599ece0fbc3b70
+  - enabled: 1
+    path: Assets/Scenes/Level 6 Free Obstacle.unity
+    guid: 2b42e0cebfcc43a479b33b68feeea83a
+  - enabled: 1
+    path: Assets/Scenes/Level 7 1 Obstacle.unity
+    guid: 067c6c1cd3906794bbd7918ca16559eb
+  - enabled: 1
+    path: Assets/Scenes/Level 8 2 Obstacles.unity
+    guid: 4776b931a78bd1e4eb4cee2a51acac41
+  - enabled: 1
+    path: Assets/Scenes/Level 9 Square Obstacle.unity
+    guid: 8b59199803b835047a61a33c498be039
   m_configObjects: {}

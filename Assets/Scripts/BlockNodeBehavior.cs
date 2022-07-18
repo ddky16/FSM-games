@@ -53,6 +53,9 @@ public class BlockNodeBehavior : MonoBehaviour
       int valueChosen = logicDropdownList.value;
       var newLogic = Instantiate(logicPrefabs[valueChosen], transform.position, Quaternion.identity, logicContainer);
 
+      LayoutRebuilder.ForceRebuildLayoutImmediate(this.GetComponent<RectTransform>());
+      LayoutRebuilder.ForceRebuildLayoutImmediate(this.GetComponent<RectTransform>());
+
       HideFormAddNewLogic();
     });
 
@@ -80,13 +83,13 @@ public class BlockNodeBehavior : MonoBehaviour
   {
     logicOptions.SetActive(false);
     hideLogicState.SetActive(false);
-    addLogicState.SetActive(true);
+    addLogicState.SetActive(false);
   }
 
   private void OpenFormAddNewLogic()
   {
     logicOptions.SetActive(true);
-    hideLogicState.SetActive(true);
+    hideLogicState.SetActive(false);
     addLogicState.SetActive(false);
   }
 }

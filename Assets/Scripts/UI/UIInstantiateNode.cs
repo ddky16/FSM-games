@@ -11,10 +11,17 @@ public class UIInstantiateNode : MonoBehaviour
   public GameObject prefabPatrolState;
   public GameObject prefabAttackState;
   public GameObject prefabChaseState;
-  public GameObject prefabFleeState;
   public GameObject prefabCustomState;
   public GameObject prefabWaypointField;
   public GameObject prefabDecision, prefabLineRenderer;
+
+  [Header("Prefabs Logic")]
+  public GameObject prefabIdleLogic;
+  public GameObject prefabPatrolLogic;
+  public GameObject prefabAttackLogic;
+  public GameObject prefabChaseLogic;
+  public GameObject prefabCustomLogic;
+  public GameObject stateContainer;
 
   [Header("Panel")]
   public GameObject transitionScrollView;
@@ -30,18 +37,15 @@ public class UIInstantiateNode : MonoBehaviour
   {
     tank = GameObject.Find("Tank");
   }
-  private void FixedUpdate()
-  {
-    EventManager eventManager = FindObjectOfType<EventManager>();
-    bool check = eventManager.HitWallCheck(tank);
-    Debug.Log(check);
-  }
 
   public void SpawnIdleState()
   {
     GameObject newState = (GameObject)Instantiate(prefabIdleState, contentBlock.position, Quaternion.identity, contentBlock);
     newState.name = "Idle State";
 
+    GameObject newLogic = Instantiate(prefabIdleLogic, transform.position, Quaternion.identity, stateContainer.transform);
+
+    nodes.logicList.Add(newLogic);
     nodes.stateList.Add(newState);
   }
 
@@ -50,6 +54,9 @@ public class UIInstantiateNode : MonoBehaviour
     GameObject newState = (GameObject)Instantiate(prefabPatrolState, contentBlock.position, Quaternion.identity, contentBlock);
     newState.name = "Patrol State";
 
+    GameObject newLogic = Instantiate(prefabPatrolLogic, transform.position, Quaternion.identity, stateContainer.transform);
+
+    nodes.logicList.Add(newLogic);
     nodes.stateList.Add(newState);
   }
 
@@ -58,6 +65,9 @@ public class UIInstantiateNode : MonoBehaviour
     GameObject newState = (GameObject)Instantiate(prefabAttackState, contentBlock.position, Quaternion.identity, contentBlock);
     newState.name = "Attack State";
 
+    GameObject newLogic = Instantiate(prefabAttackLogic, transform.position, Quaternion.identity, stateContainer.transform);
+
+    nodes.logicList.Add(newLogic);
     nodes.stateList.Add(newState);
   }
 
@@ -66,14 +76,9 @@ public class UIInstantiateNode : MonoBehaviour
     GameObject newState = (GameObject)Instantiate(prefabChaseState, contentBlock.position, Quaternion.identity, contentBlock);
     newState.name = "Chase State";
 
-    nodes.stateList.Add(newState);
-  }
+    GameObject newLogic = Instantiate(prefabChaseLogic, transform.position, Quaternion.identity, stateContainer.transform);
 
-  public void SpawnFleeState()
-  {
-    GameObject newState = (GameObject)Instantiate(prefabFleeState, contentBlock.position, Quaternion.identity, contentBlock);
-    newState.name = "Flee State";
-
+    nodes.logicList.Add(newLogic);
     nodes.stateList.Add(newState);
   }
 
@@ -82,6 +87,9 @@ public class UIInstantiateNode : MonoBehaviour
     GameObject newState = (GameObject)Instantiate(prefabCustomState, contentBlock.position, Quaternion.identity, contentBlock);
     newState.name = "Custom State";
 
+    GameObject newLogic = Instantiate(prefabCustomLogic, transform.position, Quaternion.identity, stateContainer.transform);
+
+    nodes.logicList.Add(newLogic);
     nodes.stateList.Add(newState);
   }
 
@@ -160,5 +168,10 @@ public class UIInstantiateNode : MonoBehaviour
 
     nodes.lineList.Clear();
     nodes.transitionDataList.Clear();
+  }
+
+  public void Delay()
+  {
+
   }
 }

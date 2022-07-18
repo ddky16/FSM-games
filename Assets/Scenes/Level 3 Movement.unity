@@ -1610,7 +1610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eabdc9ddbf17934bab2f5c165611be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyOnRange: 0
   getHit: 0
 --- !u!1 &396526913
 GameObject:
@@ -2161,7 +2160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &502987084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5702,17 +5701,23 @@ MonoBehaviour:
   prefabPatrolState: {fileID: 2146201644757591971, guid: a6ad08faeb32aaa4a8b9bbd6b3c3109b, type: 3}
   prefabAttackState: {fileID: 2146201644757591971, guid: d4f74d7dc4946604ea7ec0f712229f99, type: 3}
   prefabChaseState: {fileID: 2146201644757591971, guid: 04706f1e2c5df55468f0fd0e2f3735f2, type: 3}
-  prefabFleeState: {fileID: 2146201644757591971, guid: b02bcabf503906742b4c67c86bb9bc45, type: 3}
   prefabCustomState: {fileID: 2146201644757591971, guid: e17f0927ea44a954cb12f58a102d9cc3, type: 3}
   prefabWaypointField: {fileID: 408956327923757089, guid: 109fcd2eeeaf9be4ea5fb614ae9ddd80, type: 3}
   prefabDecision: {fileID: 419915026396196974, guid: 8d3667b9c580f1340806bd5c5a7b524d, type: 3}
   prefabLineRenderer: {fileID: 528483349718219785, guid: a0d48ea806f6eb749910bf8e33716e8d, type: 3}
+  prefabIdleLogic: {fileID: 2045318251852090665, guid: 1ebb6a8f77923e94fad91aaf33dabb4d, type: 3}
+  prefabPatrolLogic: {fileID: 1080573994187855711, guid: 494d5cc240b63814799a58222521f1ab, type: 3}
+  prefabAttackLogic: {fileID: 1065262165386719553, guid: a05cf7571c80c174fb27716308f4aa95, type: 3}
+  prefabChaseLogic: {fileID: 2676328874300938057, guid: 3cb94e32b8dd29a41851789b57ed1f1c, type: 3}
+  prefabCustomLogic: {fileID: 5092622914757645219, guid: dcaf2bc467b2f9148a32222fa8773f27, type: 3}
+  stateContainer: {fileID: 2095646829}
   transitionScrollView: {fileID: 1233101117}
   contentBlock: {fileID: 1545686991}
   containerLineRenderer: {fileID: 1838996559}
   transitionBlock: {fileID: 1233101117}
   nodes:
     stateList: []
+    logicList: []
     lineList: []
     waypointsList: []
     transitionDataList: []
@@ -6955,7 +6960,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1879306808}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2095646829}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1879306808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7775,7 +7792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2095646830
 Transform:
   m_ObjectHideFlags: 0

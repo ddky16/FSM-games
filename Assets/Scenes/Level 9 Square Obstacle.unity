@@ -1435,7 +1435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eabdc9ddbf17934bab2f5c165611be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyOnRange: 0
   getHit: 0
 --- !u!1 &396526913
 GameObject:
@@ -1928,7 +1927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &502987084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5394,17 +5393,23 @@ MonoBehaviour:
   prefabPatrolState: {fileID: 2146201644757591971, guid: a6ad08faeb32aaa4a8b9bbd6b3c3109b, type: 3}
   prefabAttackState: {fileID: 2146201644757591971, guid: d4f74d7dc4946604ea7ec0f712229f99, type: 3}
   prefabChaseState: {fileID: 2146201644757591971, guid: 04706f1e2c5df55468f0fd0e2f3735f2, type: 3}
-  prefabFleeState: {fileID: 2146201644757591971, guid: b02bcabf503906742b4c67c86bb9bc45, type: 3}
   prefabCustomState: {fileID: 2146201644757591971, guid: e17f0927ea44a954cb12f58a102d9cc3, type: 3}
   prefabWaypointField: {fileID: 408956327923757089, guid: 109fcd2eeeaf9be4ea5fb614ae9ddd80, type: 3}
   prefabDecision: {fileID: 419915026396196974, guid: 8d3667b9c580f1340806bd5c5a7b524d, type: 3}
   prefabLineRenderer: {fileID: 528483349718219785, guid: a0d48ea806f6eb749910bf8e33716e8d, type: 3}
+  prefabIdleLogic: {fileID: 2146201644757591971, guid: 65c98799ec104e34ead5b7e4f67ae517, type: 3}
+  prefabPatrolLogic: {fileID: 2146201644757591971, guid: a6ad08faeb32aaa4a8b9bbd6b3c3109b, type: 3}
+  prefabAttackLogic: {fileID: 2146201644757591971, guid: d4f74d7dc4946604ea7ec0f712229f99, type: 3}
+  prefabChaseLogic: {fileID: 2146201644757591971, guid: 04706f1e2c5df55468f0fd0e2f3735f2, type: 3}
+  prefabCustomLogic: {fileID: 2146201644757591971, guid: e17f0927ea44a954cb12f58a102d9cc3, type: 3}
+  stateContainer: {fileID: 2095646829}
   transitionScrollView: {fileID: 1233101117}
   contentBlock: {fileID: 1545686991}
   containerLineRenderer: {fileID: 1838996559}
   transitionBlock: {fileID: 1233101117}
   nodes:
     stateList: []
+    logicList: []
     lineList: []
     waypointsList: []
     transitionDataList: []
